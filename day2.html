@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <script src="jquery.mousewheel.js"></script>
+    <script>
+        $(function () {
+            var $h = $(window).height();
+            var nowScreen = 0;
+            var screenCount = 5;
+            $(".pages").css({height:$h})
+            $(window).mousewheel(function (event, dat) {
+                if (dat == -1){
+                    nowScreen ++;
+                    if (nowScreen > screenCount - 1){
+                        nowScreen = screenCount - 1
+                    }
+                }
+                else {
+                    nowScreen --;
+                    if (nowScreen < 0){
+                        nowScreen = 0;
+                    }
+
+                }
+                $(".page").animate({top: -$h * nowScreen});
+            })
+        })
+    </script>
+    <style>
+        body,div{
+            margin: 0;
+            padding: 0;
+        }
+        .page1,.page2,.page3,.page4,.page5{
+        }
+        .page{
+            position: absolute;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .page1{
+            background-color: yellow;
+        }
+        .page2{
+            background-color: green;
+        }
+        .page3{
+            background-color: gold;
+        }
+        .page4{
+            background-color: black;
+        }
+        .page5{
+            background-color: magenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="page1 pages">pages1</div>
+        <div class="page2 pages">pages2</div>
+        <div class="page3 pages">pages3</div>
+        <div class="page4 pages">pages4</div>
+        <div class="page5 pages">pages5</div>
+    </div>
+</body>
+</html>
