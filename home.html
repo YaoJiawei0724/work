@@ -2,9 +2,661 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width,
+                                     initial-scale=1.0,
+                                     maximum-scale=1.0,
+                                     user-scalable=no">
+    <title>简介</title>
+    <script src="jquery-1.12.4.min.js"></script>
+
+    <!--总体jsp-->
+    <script>
+        $(document).ready(function () {
+//          移动端的menu toggle动画
+            $(".menubtn").click(function () {
+                $("li.navbtn").fadeToggle(500).css({"display":"inline-block"});
+            });
+//            $h = $(window).height();
+//            $(".sections").css({"height":$h});
+        })
+    </script>
+
+    <!--第一页jsp-->
+
+    <!------------------------------------------------------------------->
+
+    <!--导航栏的CSS-->
+    <style>
+        html body {
+            margin: 0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .header{
+            height: 44px;
+            width: 100%;
+            background-color: yellow;
+            z-index: 9999;
+            position: fixed;
+            top:0;
+
+        }
+
+        .navbar{
+            width: 1000px;
+            margin: 0 auto 0;
+        }
+
+        .navul{
+            padding: 0;
+            list-style: none;
+        }
+
+        .navbtn{
+            width: 12.5%;
+            float: left;
+            text-align: center;
+        }
+
+        .home{
+            width: 12.5%;
+            float: left;
+            text-align: center;
+        }
+
+        .menubtn{
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            float: right;
+            border: 0;
+            padding: 0;
+            margin: auto 0;
+            position: relative;
+            bottom: 10px;
+            right: 10px;
+            display: none;
+            outline: none;
+        }
+
+        /*每一个格子为133.3 pc*/
+        @media screen and (max-width: 1600px){
+
+        }
+
+        /*每一个格子为83.3 平板电脑*/
+        @media screen and (max-width: 1000px){
+            .navbar{
+                width: 100%;
+            }
+        }
+
+        /*每一个格子为63 手机*/
+        @media screen and (max-width: 756px){
+            /*调整导航栏为列表*/
+            li.navbtn{
+                display: none;
+                background-color: blue;
+                margin-top: -25px;
+                height: 50px;
+                width: 100%;
+                position: relative;
+                line-height: 50px;
+                top:15px;
+                float: none;
+                text-align: center;
+            }
+
+            /*固定LOGO宽度 美观*/
+            .home{
+                width: 95px
+            }
+
+            /*显示菜单按钮*/
+            .menubtn{
+                display: block;
+            }
+
+        }
+
+        /*修复使用按钮后不显示导航栏按钮的bug*/
+        @media screen and (min-width: 757px){
+            li.navbtn{
+                display: list-item !important;
+            }
+        }
+
+    </style>
+
+    <!--主页的CSS-->
+    <style>
+
+        .sections{
+            height: 100vh;
+            width: 100%;
+        }
+
+        .section1{
+            background-color: cyan;
+            /*position: absolute;*/
+            height: 100vh;
+        }
+
+        .helloworld{
+            font-size: 14vh;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            margin: 0;
+            top:43vh;
+        }
+
+    </style>
+
+    <!--个人简介的CSS-->
+    <style>
+        .section2{
+            height: 100vh;
+            background-color: magenta;
+        }
+
+        h1{
+            margin: 0;
+        }
+
+        .s2-box1{
+            position: relative;
+            top:22vh;
+            left:10vw;
+            width: 45vw;
+        }
+
+        .s2-name{
+            position: relative;
+            font-size: 6vh;
+        }
+
+        .s2-yjw{
+            font-size: 3vh;
+        }
+
+        .s2-gender{
+            margin-top: 2vh;
+            font-size: 2.5vh;
+            margin-bottom: 2vh;
+        }
+
+        .s2-school{
+            font-size: 2.5vh;
+            margin-bottom: 2vh;
+        }
+
+        .s2-bachelor{
+            font-size: 2.5vh;
+            margin-bottom: 2vh;
+        }
+
+        .s2-hometown{
+            font-size: 2.5vh;
+            float: right;
+            position: relative;
+            right: 9vw;
+        }
+
+        .s2-hometown h2{
+            margin: 0;
+        }
+
+
+        .s2-list{
+            width: auto;
+            height: 40vh;
+            padding: 0;
+            font-size: 2.3vh;
+            list-style: none;
+            text-align: right;
+            position: relative;
+            right: 10vw;
+        }
+
+        .s2-listli{
+            margin-top: 1.5vh;
+        }
+
+        .s2-link{
+
+        }
+
+        .s2-self{
+            margin: 0;
+            font-size: 2vh;
+            margin-top: 1.5vh;
+            position: relative;
+            width: 50vw;
+            left: 10vw;
+            bottom: 10vh;
+
+        }
+
+        /*每一个格子为133.3 pc*/
+        @media screen and (max-width: 1600px){
+
+        }
+
+        /*每一个格子为83.3 平板电脑*/
+        @media screen and (max-width: 1000px){
+        }
+
+        /*每一个格子为63 手机*/
+        @media screen and (max-width: 756px){
+            .section2{
+                height: 120vh;
+            }
+
+            .s2-box1{
+                top:30vh;
+                left: 0;
+                width: 100vw;
+                text-align: center;
+            }
+
+            .s2-yjw{
+                display: none;
+            }
+
+            .s2-hometown{
+                float: none;
+                right: 0;
+                text-align: center;
+                top: 30vh;
+            }
+
+            .s2-list{
+                right: 0;
+                text-align: center;
+                top:27vh;
+            }
+
+            .s2-self{
+                top:8vh;
+                left: 0;
+                text-align: center;
+            }
+        }
+
+
+    </style>
+
+    <!--开发平台的CSS-->
+    <style>
+        .s3-win{
+            float: left;
+            background-color: blue;
+            width: 33.33vw;
+            height: 100vh;
+        }
+
+        .s3-mac{
+            float: left;
+            background-color: purple;
+            width: 33.33vw;
+            height: 100vh;
+        }
+
+        .s3-linux{
+            float: left;
+            background-color: red;
+            width: 33.33vw;
+            height: 100vh;
+        }
+
+        @media screen and (max-width: 1600px){
+
+        }
+
+        /*每一个格子为83.3 平板电脑*/
+        @media screen and (max-width: 1000px){
+        }
+
+        /*每一个格子为63 手机*/
+        @media screen and (max-width: 756px) {
+            .s3-win{
+                width: 100vw;
+                height: 33.33vh;
+            }
+
+            .s3-mac{
+                width: 100vw;
+                height: 33.33vh;
+            }
+
+            .s3-linux{
+                width: 100vw;
+                height: 33.33vh;
+            }
+        }
+    </style>
+
+    <!--专业技能的CSS-->
+    <style>
+        .section4{
+            background-color: gold;
+        }
+
+        .s4-frontend{
+            float: left;
+            background-color: green;
+            width: 33.33vw;
+            height: 100vh;
+        }
+
+        .s4-backend{
+            float: left;
+            background-color: darkorange;
+            width: 33.33vw;
+            height: 100vh;
+        }
+
+        .s4-others{
+            float: left;
+            background-color: lightcoral;
+            width: 33.33vw;
+            height: 100vh;
+        }
+
+        .section4 div p{
+            font-size: 5vh;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 1600px){
+
+        }
+
+        /*每一个格子为83.3 平板电脑*/
+        @media screen and (max-width: 1000px){
+        }
+
+        /*每一个格子为63 手机*/
+        @media screen and (max-width: 756px) {
+            .section4{
+                height: 300vh;
+            }
+
+            .s4-frontend{
+                float: left;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .s4-backend{
+                float: left;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .s4-others{
+                float: left;
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+    </style>
+
+    <!--项目经验的CSS-->
+    <style>
+        .section5{
+            background-color: #5cb85c;
+        }
+
+        .section5 p{
+            margin: 0;
+            font-size: 30vh;
+            float: left;
+        }
+    </style>
+
+    <!--外语能力的CSS-->
+    <style>
+        .s6-english{
+            float: left;
+            width: 50vw;
+            height: 100vh;
+            background-color: #1b6d85;
+        }
+
+        .section6 div p{
+            margin:0;
+        }
+
+        .s6-box1{
+            position: relative;
+            top: 12vh;
+        }
+
+        .s6-engtext1{
+            font-size: 9vh;
+        }
+
+        .s6-engtext2{
+            font-size: 11vh;
+            position: relative;
+            left: 12vw;
+        }
+
+        .s6-engtext3{
+            font-size: 2vh;
+            position: relative;
+            left: 6vw;
+        }
+
+        .s6-box2{
+            position: relative;
+            top: 65vh;
+        }
+
+        .s6-jptext1{
+            font-size: 9vh;
+        }
+
+        .s6-jptext2{
+            text-align: center;
+            width: 50vw;
+            font-size: 11vh;
+            position: relative;
+        }
+
+        .s6-jptext3{
+            width:30vw;
+            font-size: 2vh;
+            position: relative;
+            left: 6vw;
+        }
+
+        .s6-japanese{
+            float: left;
+            width: 50vw;
+            height: 100vh;
+            background-color: cornflowerblue;
+        }
+
+        @media screen and (max-width: 1600px){
+
+        }
+
+        /*每一个格子为83.3 平板电脑*/
+        @media screen and (max-width: 1000px){
+        }
+
+        /*每一个格子为63 手机*/
+        @media screen and (max-width: 756px) {
+            .section6{
+                float: left;
+                height: 200vh;
+            }
+
+            .s6-english{
+                width: 100vw;
+            }
+
+            .s6-engtext1{
+                font-size: 13vw;
+                position: relative;
+                left: 15vw;
+                width: 70vw;
+            }
+
+            .s6-engtext2{
+                font-size: 16vw;
+                position: relative;
+                left: 25vw;
+                width: 70vw;
+            }
+
+            .s6-engtext3{
+                position: relative;
+                left: 20vw;
+                width: 70vw;
+            }
+
+            .s6-japanese{
+                width: 100vw;
+            }
+
+            .s6-jptext1{
+                font-size: 13vw;
+                position: relative;
+                left: 15vw;
+                width: 70vw;
+            }
+
+            .s6-jptext2{
+                font-size: 16vw;
+                position: relative;
+                left: 25vw;
+                width: 70vw;
+            }
+
+            .s6-jptext3{
+                position: relative;
+                left: 20vw;
+                width: 70vw;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
+    <!--导航栏-->
+    <header class="header">
+            <nav class="navbar">
+                <button class="menubtn" id="menubtn"></button>
+                <ul class="navul">
+                    <li class="home">233333</li>
+                    <li class="navbtn"><a href="#">个人简介</a></li>
+                    <li class="navbtn"><a href="#">开发平台</a></li>
+                    <li class="navbtn"><a href="#">专业技能</a></li>
+                    <li class="navbtn"><a href="#">项目经验</a></li>
+                    <li class="navbtn"><a href="#">外语能力</a></li>
+                    <li class="navbtn"><a href="#">动画制作</a></li>
+                    <li class="navbtn"><a href="#">联系方式</a></li>
+                </ul>
+            </nav>
+        </header>
+
+    <!--Hello World页面-->
+    <section class="sections section1">
+                <p class="helloworld">233333</p>
+        </section>
+
+    <!--个人简介-->
+    <section class="sections section2">
+        <div class="s2-box1">
+            <h1 class="s2-name">姚嘉玮<small class="s2-yjw">Yao Jiawei</small></h1>
+            <h2 class="s2-gender">男 | 1995.7</h2>
+            <h2 class="s2-school">岭南师范学院 · 信息管理与信息系统</h2>
+            <h2 class="s2-bachelor">本科 | 2018年毕业</h2>
+        </div>
+        <div class="s2-hometown"><h2>山西 · 太原</h2></div>
+        <br>
+        <br>
+        <ul class="s2-list">
+            <li class="s2-listli"><a href="#" target="_blank"><span class="s2-link">yaojiawei.cn(图)</span></a></li>
+            <li class="s2-listli"><a href="#" target="_blank"><span class="s2-link">github.com/YaoJiawei0724(图)</span></a></li>
+            <li class="s2-listli"><a href="#" target="_blank"><span class="s2-link">529415140@qq.com(图)</span></a></li>
+            <li class="s2-listli"><a href="#" target="_blank"><span class="s2-link">13414947552(图)</span></a></li>
+        </ul>
+
+        <p class="s2-self">我兴趣广泛，做事认真，充满Geek精神。</p>
+        <p class="s2-self">对各种未知的技术充满好奇。</p>
+        <p class="s2-self">多年开发经验，涉及Web前端后端开发、iOS开发等多个方面。后端开发</p>
+        <p class="s2-self">工作能力出众，接受异地工作、加班、外派、出差等各种工作需求。</p>
+
+
+    </section>
+
+    <!--开发平台-->
+    <section class="sections section3">
+        <div class="s3-win">
+
+        </div>
+
+        <div class="s3-mac">
+
+        </div>
+
+        <div class="s3-linux">
+
+        </div>
+
+    </section>
+
+    <!--专业技能-->
+    <section class="sections section4">
+        <div class="s4-frontend">
+            <p>前端</p>
+        </div>
+
+        <div class="s4-backend">
+            <p>后端</p>
+        </div>
+
+        <div class="s4-others">
+            <p>其它</p>
+        </div>
+    </section>
+
+    <!--项目经验-->
+    <section class="sections section5">
+        <p>项目经验</p>
+    </section>
+
+    <!--外语能力-->
+    <section class="sections section6">
+        <div class="s6-english">
+            <div class="s6-box1">
+                <p class="s6-engtext1">官方文档？</p>
+                <p class="s6-engtext2">没问题！</p>
+                <p class="s6-engtext3">熟练阅读各类官方文档</p>
+                <p class="s6-engtext3">熟练熟练使用各种英文软件</p>
+            </div>
+        </div>
+
+        <div class="s6-japanese">
+            <div class="s6-box2">
+                <p class="s6-jptext1">日文应用？</p>
+                <p class="s6-jptext2">没问题！</p>
+                <p class="s6-jptext3">JLPT N2级</p>
+                <p class="s6-jptext3">可进行日文软件的开发</p>
+            </div>
+        </div>
+    </section>
+
+    <!--动画制作-->
 </body>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+                                     initial-scale=1.0,
+                                     maximum-scale=1.0,
+                                     user-scalable=no">
+    <title>简介</title>
+    <script src="jquery-1.12.4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+//          移动端的menu toggle动画
+            $(".menubtn").click(function () {
+                $("li.navbtn").fadeToggle(500).css({"display":"inline-block"});
+            });
+        })
+    </script>
+
+    <style>
+
+        .sections{
+            width: 100%;
+        }
+
+        .section1{
+            background-color: cyan;
+            position: absolute;
+            height: 100vh;
+        }
+
+        .helloworld{
+            font-size: 14vh;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            margin: 0;
+            top:43vh;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <section class="sections section1">
+    <p class="helloworld">233333</p>
+</section>
+</body>
+</html>
